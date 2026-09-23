@@ -57,6 +57,10 @@
 
 - 大功告成
 
+### EdgeOne Makers
+
+部署步骤和验证方法见 [EdgeOne Makers 使用指南](./docs/guidebook/edgeone-makers.md)。
+
 ### 其他托管平台
 
 请参考官方文档：[部署 Nuxt 应用](https://nuxtjs.org.cn/deploy)

@@ -136,6 +136,7 @@ export default defineNuxtConfig({
   },
   // i18n
   i18n: {
+    restructureDir: false,
     vueI18n: "./lang/i18n.config.ts",
   },
   // icon
