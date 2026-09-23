@@ -66,7 +66,7 @@ For deployment guides, refer to the official documentation: [Deploying Nuxt Apps
 
 ### How to Enable Site Encryption
 
-Add the following environment variables: `SITE_PASSWORD` and `SITE_SECRET_KEY`. Both are required. The `SITE_PASSWORD` is the site password, and the `SITE_SECRET_KEY` is the encryption key, which you can choose freely.
+Add the following environment variables: `SITE_PASSWORD` and `SITE_SECRET_KEY`. Both are required. The `SITE_PASSWORD` is the site password, and the `SITE_SECRET_KEY` is the login signing key (at least 32 bytes). It is strongly recommended to generate a strong random value, e.g. `openssl rand -hex 32`.
 
 ## Thanks
 

@@ -91,6 +91,8 @@ const statusStore = useStatusStore();
 
 // 倒计时
 const updateTime = ref<number>(300);
+const documentVisibility = useDocumentVisibility();
+const autoRefreshing = ref(false);
 
 // 站点状态文本
 const siteGlobalText = computed(() => ({
@@ -121,7 +123,7 @@ const refresh = async () => {
     return;
   }
   updateTime.value = 300;
-  await getSiteData();
+  await getSiteData(t);
 };
 
 // 执行倒计时
@@ -130,13 +132,25 @@ const { pause: pauseTime, resume: resumeTime } = useIntervalFn(
     if (updateTime.value > 0) updateTime.value--;
     if (updateTime.value === 0) {
       pauseTime();
+      autoRefreshing.value = true;
       statusStore.siteStatus = "loading";
-      await getSiteData();
+      await getSiteData(t);
       updateTime.value = 300;
-      resumeTime();
+      autoRefreshing.value = false;
+      if (documentVisibility.value === "visible") resumeTime();
     }
   },
   1000,
+  { immediate: false },
+);
+
+// 标签页不可见时暂停倒计时，节省资源
+watch(
+  documentVisibility,
+  (visible) => {
+    if (visible === "visible" && !autoRefreshing.value) resumeTime();
+    else pauseTime();
+  },
   { immediate: true },
 );
 </script>

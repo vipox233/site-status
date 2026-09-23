@@ -167,7 +167,7 @@ nav {
   }
   &.scroll {
     background-color: var(--main-card-color);
-    border-bottom: solid 1px var(--mian-border-color);
+    border-bottom: solid 1px var(--main-border-color);
     box-shadow: 0px 0px 8px 4px var(--main-box-shadow);
     .nav-content {
       padding: 12px 20px;

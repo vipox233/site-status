@@ -30,7 +30,6 @@
 
 <script setup lang="ts">
 import type { FormInst, FormRules } from "naive-ui";
-import SHA256 from "crypto-js/sha256";
 
 const { t } = useI18n();
 const statusStore = useStatusStore();
@@ -48,30 +47,28 @@ const formRules: FormRules = {
 const loading = ref<boolean>(false);
 
 // 尝试登录
-const toLogin = useDebounce(
-  async () => {
-    try {
-      // 校验表单
-      await formRef.value?.validate();
-      loading.value = true;
-      // 随机延时 - 开发环境
-      const delay = Math.floor(Math.random() * 1000) + 500;
-      await sleep(delay);
-      // 尝试登录
-      const password = SHA256(formData.value.password).toString();
-      await $fetch("/api/verify", { method: "POST", body: { password } });
-      statusStore.loginStatus = true;
-      window.$message.success(t("login.success"));
-    } catch (error) {
-      console.error("error in login", error);
-      window.$message.error(t("login.error"));
-    } finally {
-      loading.value = false;
-    }
-  },
-  300,
-  { leading: true, trailing: false },
-);
+const toLogin = useDebounceFn(async () => {
+  if (loading.value) return;
+  // 表单校验失败则不发起请求
+  try {
+    await formRef.value?.validate();
+  } catch {
+    return;
+  }
+  loading.value = true;
+  try {
+    // 保持原有摘要登录协议，仍须使用 HTTPS 防止凭据被截获。
+    const password = await sha256Hex(formData.value.password);
+    await $fetch("/api/verify", { method: "POST", body: { password } });
+    statusStore.loginStatus = true;
+    window.$message.success(t("login.success"));
+  } catch (error) {
+    console.error("error in login", error);
+    window.$message.error(t("login.error"));
+  } finally {
+    loading.value = false;
+  }
+}, 300);
 </script>
 
 <style lang="scss" scoped>

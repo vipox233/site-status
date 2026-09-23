@@ -9,8 +9,8 @@ export default defineEventHandler(
   }> => {
     try {
       const config = useRuntimeConfig();
-      const { sitePassword, siteSecretKey } = config;
-      if (!sitePassword || !siteSecretKey) {
+      const { sitePassword } = config;
+      if (!sitePassword) {
         return {
           code: 200,
           message: "No password is currently set, no need to log in",

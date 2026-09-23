@@ -19,9 +19,6 @@ importers:
       '@nuxtjs/i18n':
         specifier: 9.3.4
         version: 9.3.4(@vue/compiler-dom@3.5.43)(eslint@9.18.0(jiti@2.4.2))(magicast@0.3.5)(rollup@4.63.4)(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
-      crypto-js:
-        specifier: ^4.2.0
-        version: 4.2.0
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
@@ -56,9 +53,6 @@ importers:
       '@pinia/nuxt':
         specifier: ^0.9.0
         version: 0.9.0(magicast@0.3.5)(pinia@2.3.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(rollup@4.63.4)
-      '@types/crypto-js':
-        specifier: ^4.2.2
-        version: 4.2.2
       '@types/node':
         specifier: ^22.10.7
         version: 22.10.7
@@ -77,9 +71,6 @@ importers:
       eslint:
         specifier: ^9.18.0
         version: 9.18.0(jiti@2.4.2)
-      nuxt-lodash:
-        specifier: ^2.5.3
-        version: 2.5.3(magicast@0.3.5)(rollup@4.63.4)
       pinia-plugin-persistedstate:
         specifier: ^4.2.0
         version: 4.2.0(@pinia/nuxt@0.9.0(magicast@0.3.5)(pinia@2.3.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(rollup@4.63.4))(magicast@0.3.5)(pinia@2.3.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(rollup@4.63.4)
@@ -2373,9 +2364,6 @@ packages:
   '@tybys/wasm-util@0.10.4':
     resolution: {integrity: sha512-W3c4gRigFS0T/Ma4qIYF3GDAc5AQdHb1yL5znJT1Zv1YaD9Kitx656wBjvr19qbiosmZT8lWDM5BEMynUqX65A==}
 
-  '@types/crypto-js@4.2.2':
-    resolution: {integrity: sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==}
-
   '@types/doctrine@0.0.9':
     resolution: {integrity: sha512-eOIHzCUSH7SMfonMG1LsC2f8vxBFtho6NGBznK41R84YzPuvSBzrhEps33IsQiOW9+VL6NQ9DbjQJznk/S4uRA==}
 
@@ -3198,10 +3186,6 @@ packages:
     peerDependenciesMeta:
       srvx:
         optional: true
-
-  crypto-js@4.2.0:
-    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
-    deprecated: Active development of CryptoJS has been discontinued. This library is no longer maintained.
 
   crypto-random-string@2.0.0:
     resolution: {integrity: sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==}
@@ -5159,9 +5143,6 @@ packages:
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
-
-  nuxt-lodash@2.5.3:
-    resolution: {integrity: sha512-LCJ40tGQTHkfk8rQoGqtb0mFgRVt8U+pc3S352DsI39yF3olqgxlsm28wdJMIcWHuxLgf5X+DwxmZhrAHXNS5g==}
 
   nuxt@3.16.2:
     resolution: {integrity: sha512-yjIC/C4HW8Pd+m0ACGliEF0HnimXYGYvUzjOsTiLQKkDDt2T+djyZ+pCl9BfhQBA8rYmnsym2jUI+ubjv1iClw==}
@@ -9714,8 +9695,6 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@types/crypto-js@4.2.2': {}
-
   '@types/doctrine@0.0.9': {}
 
   '@types/estree@0.0.39': {}
@@ -10792,8 +10771,6 @@ snapshots:
   crossws@0.4.12(srvx@0.11.22):
     optionalDependencies:
       srvx: 0.11.22
-
-  crypto-js@4.2.0: {}
 
   crypto-random-string@2.0.0: {}
 
@@ -12946,16 +12923,6 @@ snapshots:
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
-
-  nuxt-lodash@2.5.3(magicast@0.3.5)(rollup@4.63.4):
-    dependencies:
-      '@nuxt/kit': 3.15.2(magicast@0.3.5)(rollup@4.63.4)
-      '@types/lodash-es': 4.17.12
-      lodash-es: 4.17.21
-    transitivePeerDependencies:
-      - magicast
-      - rollup
-      - supports-color
 
   nuxt@3.16.2(@types/node@22.10.7)(cac@6.7.14)(db0@0.3.4)(eslint@9.18.0(jiti@2.4.2))(ioredis@5.11.1)(lightningcss@1.28.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.63.4)(sass@1.83.4)(srvx@0.11.22)(terser@5.37.0)(typescript@5.7.3)(vite@6.4.3(@types/node@22.10.7)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))(yaml@2.7.0):
     dependencies:

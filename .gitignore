@@ -3,6 +3,8 @@
 .data
 .nuxt
 .nitro
+.edgeone
+.edgeone-nitro-config.mjs
 .cache
 node-compile-cache
 dist
