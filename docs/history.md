@@ -1,5 +1,12 @@
 # 开发记录
 
+## 2026-09-23：修复 EdgeOne 上 API 被误拦截
+
+- 需求：修复线上显示访问密码框，但实际未设置访问密码的问题。
+- 原因：浏览器访问 `https://status.vipox.cn/` 时，`POST /api/check` 返回 403 `Access Denied`。EdgeOne 函数内部识别的请求地址是 `http://pages-pro-29-a02a.pages-scf-gz-pro.qcloudteo.com/api/check`；上次引入的来源校验把浏览器来源与内部地址比较，误拦截正常请求。前端把检查请求失败显示为登录页。
+- 完成：移除依赖请求来源与内部地址一致的 API 中间件。受保护数据仍由 `/api/getMonitors` 校验登录令牌；登录接口的密码校验与限流、Cookie 的 `SameSite=Strict` 保持原有配置。
+- 验证：`pnpm lint` 和 `DEPLOYMENT_PLATFORM=auto pnpm build` 通过。用 EO 内部 Host 与公网 Referer 模拟请求，公开模式下 `/api/check` 返回 200；设置测试密码后，未登录请求返回 401。线上 EO 部署仍待回归。
+
 ## 2026-09-23：EdgeOne Makers 兼容修复
 
 - 需求：修复 Makers 显示构建成功、预览却返回 404 的问题。
