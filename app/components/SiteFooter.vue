@@ -1,19 +1,5 @@
 <template>
   <footer id="footer">
-    <n-flex class="link" align="center">
-      <n-button
-        v-for="(item, key, index) in linkData"
-        :key="index"
-        :focusable="false"
-        quaternary
-        circle
-        @click="jumpLink(item)"
-      >
-        <template #icon>
-          <Icon :name="`icon:${key}`" />
-        </template>
-      </n-button>
-    </n-flex>
     <n-flex :size="4" class="text" align="center" vertical>
       <n-p depth="3">
         <n-text depth="3" @click="jumpLink(linkData.github)">
@@ -52,7 +38,6 @@ const { siteIcp, version } = configPublic;
 const linkData = {
   github: "https://github.com/imsyy/site-status",
   home: "https://www.imsyy.top",
-  email: "mailto:one@imsyy.top",
 };
 </script>
 
@@ -65,7 +50,6 @@ footer {
   margin-top: auto;
   z-index: 100;
   .text {
-    margin-top: 12px;
     .n-p,
     .n-text {
       margin: 0;
